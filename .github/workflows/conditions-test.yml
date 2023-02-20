@@ -21,6 +21,7 @@ jobs:
       out1: ${{ steps.filter.outputs.out1 }}
     steps:
     # For pull requests it's not necessary to checkout the code
+    - uses: actions/checkout@v3
     - uses: dorny/paths-filter@v2
       id: filter
       with:
