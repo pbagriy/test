@@ -1,1 +1,11 @@
+name: Schedule export jobs
+on:
+  schedule:
+    - "0 16 * * *"
+jobs:
+  export-dev:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a one-line script
+        run: echo "this is fine"
 
