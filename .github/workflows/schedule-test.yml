@@ -1,12 +1,12 @@
 name: Schedule export jobs
 on:
   schedule:
-    - cron: "30 15 * * *"
-    - cron: "35 15 * * *"
+    - cron: "30 16 * * *"
+    - cron: "35 16 * * *"
 jobs:
-  export-dev:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Run a one-line script
-        run: echo "this is fine"
-
+  one:
+    if: github.event.schedule == "30 16 * * *"
+    uses: ./.github/workflows/dispatch.yml
+  two:
+    if: github.event.schedule == "35 16 * * *"
+    uses: ./.github/workflows/dispatch.yml
