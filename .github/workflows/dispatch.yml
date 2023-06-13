@@ -1,0 +1,15 @@
+name: Run export job
+on:
+  workflow_call:
+    inputs:
+      env:
+        description: 'Environment for the job'
+        required: true
+        type: string
+
+jobs:
+  print:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a one-line script
+        run: echo "this is fine ${{ inputs.env }}"
