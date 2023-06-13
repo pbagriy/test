@@ -1,12 +1,16 @@
 name: Schedule export jobs
 on:
   schedule:
-    - cron: "30 16 * * *"
-    - cron: "35 16 * * *"
+    - cron: "40 16 * * *"
+    - cron: "45 16 * * *"
 jobs:
   one:
     if: github.event.schedule == "30 16 * * *"
     uses: ./.github/workflows/dispatch.yml
+    with:
+      env: one
   two:
     if: github.event.schedule == "35 16 * * *"
     uses: ./.github/workflows/dispatch.yml
+    with:
+      env: two
