@@ -1,7 +1,7 @@
 name: Schedule export jobs
 on:
   schedule:
-    - "0 16 * * *"
+    - cron: "30 15 * * *"
 jobs:
   export-dev:
     runs-on: ubuntu-latest
