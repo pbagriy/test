@@ -6,7 +6,12 @@ on:
         description: 'Environment for the job'
         required: true
         type: string
-
+  workflow_dispatch:
+    inputs:
+      env:
+        description: 'Environment for the job'
+        required: true
+        type: string
 jobs:
   print:
     runs-on: ubuntu-latest
