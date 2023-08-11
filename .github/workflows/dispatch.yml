@@ -12,4 +12,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run a one-line script
-        run: echo "this is fine ${{ inputs.env }}"
+        run: echo '{"input":"${{ inputs.env }}"}'
