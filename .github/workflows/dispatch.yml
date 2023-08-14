@@ -17,4 +17,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run a one-line script
-        run: echo '{"input":"${{ inputs.env }}"}'
+        run: echo '{"input":"${{ inputs.env }}", "sha":"${{ sha }}"}'
