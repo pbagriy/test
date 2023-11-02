@@ -16,6 +16,12 @@ on:
       check:
         required: true
         type: boolean
+  workflow_call:
+    inputs:
+      check:
+        required: true
+        type: boolean
+
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
