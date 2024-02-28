@@ -7,6 +7,10 @@ on:
         required: true
         description: dunno
         type: boolean
+      check2:
+        required: true
+        description: dunno
+        type: boolean
 
 jobs:
   deploy:
