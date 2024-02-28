@@ -3,11 +3,11 @@ name: Deploy
 on:
   workflow_dispatch:
     inputs:
-      check:
+      run-test:
         required: true
         description: dunno
         type: boolean
-      check2:
+      skip-test:
         required: true
         description: dunno
         type: boolean
@@ -16,6 +16,6 @@ jobs:
   deploy:
     uses: ./.github/workflows/conditions-test.yml
     with:
-      check: ${{ inputs.check }}
-      check2: ${{ inputs.check2 }}
+      run-test: ${{ inputs.run-test }}
+      skip-test: ${{ inputs.skip-test }}
     secrets: inherit

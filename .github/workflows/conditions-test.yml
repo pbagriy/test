@@ -13,15 +13,18 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
     inputs:
-      check:
+      run-test:
+        required: true
+        type: boolean
+      skip-test:
         required: true
         type: boolean
   workflow_call:
     inputs:
-      check:
+      run-test:
         required: true
         type: boolean
-      check2:
+      skip-test:
         required: true
         type: boolean
 
@@ -79,7 +82,7 @@ jobs:
         run: echo ${{github.run_number}}
   test:
     runs-on: ubuntu-latest
-    if: ${{ inputs.check && ! inputs.check2 }}
+    if: ${{ inputs.run-test && ! inputs.skip-test }}
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
