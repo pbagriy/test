@@ -21,7 +21,9 @@ on:
       check:
         required: true
         type: boolean
-
+      check2:
+        required: true
+        type: boolean
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -77,7 +79,7 @@ jobs:
         run: echo ${{github.run_number}}
   test:
     runs-on: ubuntu-latest
-    if: ${{ inputs.check }}
+    if: ${{ inputs.check && ! inputs.check2 }}
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
