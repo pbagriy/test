@@ -17,4 +17,5 @@ jobs:
     uses: ./.github/workflows/conditions-test.yml
     with:
       check: ${{ inputs.check }}
+      check2: ${{ inputs.check2 }}
     secrets: inherit
