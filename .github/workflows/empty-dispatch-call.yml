@@ -1,4 +1,4 @@
-name: Run export job
+name: Empty call
 on:
   workflow_call:
 
