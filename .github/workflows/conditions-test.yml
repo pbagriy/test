@@ -15,9 +15,11 @@ on:
     inputs:
       run-test:
         required: true
+        description: run test
         type: boolean
       skip-test:
         required: true
+        description: skip test
         type: boolean
   workflow_call:
     inputs:

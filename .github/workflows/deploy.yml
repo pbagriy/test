@@ -19,3 +19,5 @@ jobs:
       run-test: ${{ inputs.run-test }}
       skip-test: ${{ inputs.skip-test }}
     secrets: inherit
+  print:
+    uses: ./.github/workflows/empty-dispatch-call.yml
