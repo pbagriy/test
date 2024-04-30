@@ -1,0 +1,24 @@
+name: Skip test
+
+on:
+  workflow_dispatch:
+    inputs:
+      run-step:
+        description: "Run step"
+        required: true
+        type: boolean
+
+run-name: Skip test with run-step = ${{ inputs.run-step }}
+
+jobs:
+  run-step:
+    if: inputs.run-step
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a one-line script
+        run: echo "run step"
+  next-step:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a one-line script
+        run: echo "should be always run"
