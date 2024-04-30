@@ -19,7 +19,7 @@ jobs:
         run: echo "run step"
   next-step:
     needs: run-step
-    if: !failure() && !cancelled()
+    if: ${{ !failure() && !cancelled() }}
     runs-on: ubuntu-latest
     steps:
       - name: Run a one-line script
