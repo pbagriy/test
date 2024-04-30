@@ -27,7 +27,7 @@ jobs:
     needs: 
       - run-step
       - skip
-    if: ${{ !cancelled() && needs.run-step.result != 'failure' }}
+    if: ${{ !cancelled() && needs.run-step.result != 'failure' && needs.skip.result == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - name: Run a one-line script
