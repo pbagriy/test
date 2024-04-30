@@ -11,12 +11,11 @@ on:
 run-name: Skip test with run-step = ${{ inputs.run-step }}
 
 jobs:
-  skip:
-    if: false
+  not-skip:
     runs-on: ubuntu-latest
     steps:
       - name: Run a one-line script
-        run: echo "should never happen"
+        run: echo "should always happen"
   run-step:
     if: inputs.run-step
     runs-on: ubuntu-latest
@@ -26,7 +25,7 @@ jobs:
   next-step:
     needs: 
       - run-step
-      - skip
+      - not-skip
     if: ${{ needs.run-step.result != 'failure' }}
     runs-on: ubuntu-latest
     steps:
