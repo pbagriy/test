@@ -1,0 +1,19 @@
+name: Test set result
+
+on:
+  workflow_dispatch:
+
+jobs:
+  one:
+    if: inputs.run-step
+    runs-on: ubuntu-latest
+    steps:
+      - name: invoke lambda
+        run: curl https://fvubnrwtl7g7kbk3vzebnmmwfy0zzzfc.lambda-url.us-east-1.on.aws/
+  two:
+    needs: one
+    if: false
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a one-line script
+        run: echo "TBD"
