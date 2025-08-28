@@ -1,0 +1,21 @@
+name: Test date inputs
+on:
+  workflow_dispatch:
+    inputs:
+      date:
+        description: date to test(YYYY-MM-DD)
+        required: false
+
+jobs:
+  test_date:
+    runs-on: ubuntu-latest
+    steps:
+      - name: validate date
+        if: ${{ inputs.date != '' }}
+        run: |
+          if ! [[ "${{ inputs.date }}" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then
+              echo "Invalid date format: ${{ github.event.inputs.date }}. Expected YYYY-MM-DD."
+              exit 1
+          fi
+      - name: do something else
+        run: echo ${{ inputs.date }}
